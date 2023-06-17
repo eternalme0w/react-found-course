@@ -39,6 +39,9 @@ function App() {
         }
 
         setPosts([...posts, newPost]);
+
+        setTitle('');
+        setBody('');
     }
 
     return (
