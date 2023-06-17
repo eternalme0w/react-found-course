@@ -1,6 +1,6 @@
 import React from "react";
 
-const Post = () => {
+const Post = (props) => {
 
     return (
 
@@ -8,9 +8,9 @@ const Post = () => {
             
             <div className="post__content">
 
-                <strong>1. JavaScript</strong>
+                <strong>{props.post.id}. {props.post.title}</strong>
                 <div>
-                    JavaScript - programming language.
+                    {props.post.body}
                 </div>
 
             </div>

@@ -12,7 +12,7 @@ function App() {
 
     <div className="App">
       
-        <Post />
+        <Post post={{id: 1, title: "JavaScript", body: "Description"}}/>
     
     </div>
     
