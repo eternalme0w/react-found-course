@@ -26,8 +26,14 @@ function App() {
 
         <div className="App">
 
-            <MyButton disabled>delete</MyButton>
-            <MyInput />
+            <form>
+
+                <MyInput type="text" placeholder="Title"/>
+                <MyInput type="text" placeholder="Decription"/>
+                
+                <MyButton>Create</MyButton>
+
+            </form>
 
             <PostList posts={posts} title="JS posts"/>
 
