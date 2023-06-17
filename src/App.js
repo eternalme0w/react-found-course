@@ -39,7 +39,15 @@ function App() {
 
             <hr style={{margin: '15px 0'}}/>
 
-            <MySelect />
+            <MySelect 
+            
+                defaultOption="Sort By"
+                options={[
+
+                    {name: 'By title', value: 'title'},
+                    {name: 'By description', value: 'body'},
+                ]}
+            />
 
             {posts.length !== 0 
                 ? 
