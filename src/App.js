@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import "./styles/App.css";
 import Counter from "./components/Counter";
 import Post from "./components/Post";
+import PostList from "./components/PostList";
 
 
 
@@ -23,12 +24,9 @@ function App() {
 
         <div className="App">
 
-            <h1 style={{textAlign: 'center'}}>List of posts</h1>
+            <PostList posts={posts} />
+
             
-            {posts.map(post =>
-                
-                <Post post={post} key={post.id}/>
-            )}
         
         </div>
     
