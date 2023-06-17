@@ -11,10 +11,12 @@ function App() {
     <div className="App">
       
       <Counter />
+
     
     </div>
     
   );
 }
+
 
 export default App;
