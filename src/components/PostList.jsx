@@ -2,7 +2,7 @@ import React from "react";
 import Post from "./Post";
 
 
-function PostList({posts, title}) {
+function PostList({posts, title, remove}) {
 
     return (
 
@@ -12,7 +12,7 @@ function PostList({posts, title}) {
             
             {posts.map( (post, index) =>
                 
-                <Post index={index + 1} post={post} key={post.id}/>
+                <Post remove={remove} index={index + 1} post={post} key={post.id}/>
             )}
 
         </div>

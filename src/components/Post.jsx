@@ -1,6 +1,7 @@
 import React from "react";
+import MyButton from "./UI/button/MyButton";
 
-const Post = (props) => {
+const Post = ({index, post, remove}) => {
 
     return (
 
@@ -8,15 +9,15 @@ const Post = (props) => {
             
             <div className="post__content">
 
-                <strong>{props.index}. {props.post.title}</strong>
+                <strong>{index}. {post.title}</strong>
                 <div>
-                    {props.post.body}
+                    {post.body}
                 </div>
 
             </div>
 
             <div className="post__btns">
-                <button>Delete</button>
+                <MyButton onClick={() => remove(post)}>Delete</MyButton>
             </div>
 
         </div>
