@@ -23,15 +23,16 @@ function App() {
     ])
 
     const [title, setTitle] = useState('');
+    const [body, setBody] = useState('');
 
-    const bodyInputRef = useRef();
+    //const bodyInputRef = useRef();
 
     const addNewPost = (event) => {
 
         event.preventDefault();
         
         console.log(title);
-        console.log(bodyInputRef.current.value);
+        console.log(body);
     }
 
     return (
@@ -48,7 +49,9 @@ function App() {
                 />
 
                 <MyInput 
-                    ref={bodyInputRef}
+                    //ref={bodyInputRef}
+                    value={body}
+                    onChange={e => setBody(e.target.value)}
                     type="text" 
                     placeholder="Decription"
                 /> 
