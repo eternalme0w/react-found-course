@@ -1,6 +1,7 @@
 import React, {useState} from "react";
-import Counter from "./components/Counter";
 import "./styles/App.css";
+import Counter from "./components/Counter";
+import Post from "./components/Post";
 
 
 
@@ -11,22 +12,7 @@ function App() {
 
     <div className="App">
       
-        <div className="post">
-            
-            <div className="post__content">
-
-                <strong>1. JavaScript</strong>
-                <div>
-                    JavaScript - programming language.
-                </div>
-
-            </div>
-
-            <div className="post__btns">
-                <button>Delete</button>
-            </div>
-
-        </div>
+        <Post />
     
     </div>
     
