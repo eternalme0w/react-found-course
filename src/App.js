@@ -22,10 +22,12 @@ function App() {
     return (
 
         <div className="App">
+
+            <h1 style={{textAlign: 'center'}}>List of posts</h1>
             
-            {posts.map(post => 
+            {posts.map(post =>
                 
-                <Post post={post}/>
+                <Post post={post} key={post.id}/>
             )}
         
         </div>
