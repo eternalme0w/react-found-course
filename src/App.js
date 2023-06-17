@@ -2,6 +2,7 @@ import React, {useRef, useState} from "react";
 import "./styles/App.css";
 import PostList from "./components/PostList";
 import PostForm from "./components/PostForm";
+import MySelect from "./components/UI/select/MySelect";
 
 
 
@@ -38,13 +39,7 @@ function App() {
 
             <hr style={{margin: '15px 0'}}/>
 
-            <div>
-                <select>
-                    <option value="value1">By title</option>
-                    <option value="value1">By description</option>
-                </select>
-            </div>
-
+            <MySelect />
 
             {posts.length !== 0 
                 ? 
