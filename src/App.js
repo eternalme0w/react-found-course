@@ -24,7 +24,7 @@ function App() {
 
         <div className="App">
 
-            <PostList posts={posts} />
+            <PostList posts={posts} title="JS posts"/>
 
             
         
