@@ -4,6 +4,7 @@ import Counter from "./components/Counter";
 import Post from "./components/Post";
 import PostList from "./components/PostList";
 import MyButton from "./components/UI/button/MyButton";
+import MyInput from "./components/UI/input/MyInput";
 
 
 
@@ -26,6 +27,7 @@ function App() {
         <div className="App">
 
             <MyButton disabled>delete</MyButton>
+            <MyInput />
 
             <PostList posts={posts} title="JS posts"/>
 
