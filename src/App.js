@@ -13,13 +13,16 @@ function App() {
 
     const [posts, setPosts] = useState([
 
-        {id: 1, title: "JavaScript", body: "Description"},
-        {id: 2, title: "JavaScript", body: "Description"},
-        {id: 3, title: "JavaScript", body: "Description"},
-        {id: 4, title: "JavaScript", body: "Description"},
-        {id: 5, title: "JavaScript", body: "Description"},
+        {id: 1, title: "aaa", body: "odw"},
+        {id: 2, title: "bbb", body: "serea"},
+        {id: 3, title: "zxc", body: "portan"},
+        {id: 4, title: "sf", body: "eva"},
+        {id: 5, title: "emprt", body: "dqwelro"},
 
     ])
+
+    const [selectedSort, setSelectedSort] = useState('');
+
 
     const createPost = newPost => {
 
@@ -31,6 +34,12 @@ function App() {
         setPosts(posts.filter(p => p.id !== post.id))
     }
 
+    const sortPosts = sort => {
+
+        setSelectedSort(sort);
+        setPosts([...posts].sort((a, b) => a[sort].localeCompare(b[sort])));
+    }
+
     return (
 
         <div className="App">
@@ -40,7 +49,9 @@ function App() {
             <hr style={{margin: '15px 0'}}/>
 
             <MySelect 
-            
+
+                value={selectedSort}
+                onChange={sortPosts}
                 defaultOption="Sort By"
                 options={[
 
