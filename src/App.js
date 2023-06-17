@@ -5,18 +5,21 @@ import Post from "./components/Post";
 
 
 
+
+
 function App() {
 
 
-  return (
 
-    <div className="App">
-      
-        <Post post={{id: 1, title: "JavaScript", body: "Description"}}/>
+    return (
+
+        <div className="App">
+        
+            <Post post={{id: 1, title: "JavaScript", body: "Description"}}/>
+        
+        </div>
     
-    </div>
-    
-  );
+    );
 }
 
 
