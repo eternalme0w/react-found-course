@@ -12,6 +12,7 @@ function App() {
     <div className="App">
       
         <div className="post">
+            
             <div className="post__content">
 
                 <strong>1. JavaScript</strong>
@@ -19,11 +20,12 @@ function App() {
                     JavaScript - programming language.
                 </div>
 
-                <div className="post__btns">
-                    <button>Delete</button>
-                </div>
-            
             </div>
+
+            <div className="post__btns">
+                <button>Delete</button>
+            </div>
+
         </div>
     
     </div>
