@@ -36,6 +36,16 @@ function App() {
 
             <PostForm create={createPost} />
 
+            <hr style={{margin: '15px 0'}}/>
+
+            <div>
+                <select>
+                    <option value="value1">By title</option>
+                    <option value="value1">By description</option>
+                </select>
+            </div>
+
+
             {posts.length !== 0 
                 ? 
                 <PostList remove={removePost} posts={posts} title="JS posts"/>
@@ -44,11 +54,7 @@ function App() {
                     List of posts is empty
                 </h1>
             }
-
             
-
-            
-        
         </div>
     
     );
