@@ -36,7 +36,16 @@ function App() {
 
             <PostForm create={createPost} />
 
-            <PostList remove={removePost} posts={posts} title="JS posts"/>
+            {posts.length !== 0 
+                ? 
+                <PostList remove={removePost} posts={posts} title="JS posts"/>
+                : 
+                <h1 style={{fontSize: '30px', textAlign: 'center'}}>
+                    List of posts is empty
+                </h1>
+            }
+
+            
 
             
         
