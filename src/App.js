@@ -10,7 +10,15 @@ function App() {
 
     <div className="App">
       
-      <Counter />
+      <div className="post">
+        <div className="post__content">
+          <strong>1. JavaScript</strong>
+          <div>
+            JavaScript - programming language.
+          </div>
+          
+        </div>
+      </div>
     
     </div>
     
