@@ -1,8 +1,9 @@
-import React, {useRef, useState} from "react";
+import React, {useMemo, useRef, useState} from "react";
 import "./styles/App.css";
 import PostList from "./components/PostList";
 import PostForm from "./components/PostForm";
 import MySelect from "./components/UI/select/MySelect";
+import MyInput from "./components/UI/input/MyInput";
 
 
 
@@ -22,7 +23,33 @@ function App() {
     ])
 
     const [selectedSort, setSelectedSort] = useState('');
+    const [searchQuery, setSearchQuery] = useState('');
 
+    const sortedPosts = useMemo(() => {
+
+        console.log("get sorted posts");
+
+        if (selectedSort) {
+
+            return [...posts].sort((a, b) => a[selectedSort].localeCompare(b[selectedSort]));
+        }
+
+        return posts;
+
+    }, [selectedSort, posts]);
+
+    const sortedAndSearchedPosts = useMemo(() => {
+
+        return sortedPosts.filter(post => post.title.includes(searchQuery));
+
+    }, [searchQuery, sortedPosts]);
+
+    const sortPosts = sort => {
+
+        setSelectedSort(sort);
+    }
+
+    
 
     const createPost = newPost => {
 
@@ -34,11 +61,6 @@ function App() {
         setPosts(posts.filter(p => p.id !== post.id))
     }
 
-    const sortPosts = sort => {
-
-        setSelectedSort(sort);
-        setPosts([...posts].sort((a, b) => a[sort].localeCompare(b[sort])));
-    }
 
     return (
 
@@ -47,6 +69,14 @@ function App() {
             <PostForm create={createPost} />
 
             <hr style={{margin: '15px 0'}}/>
+
+            
+
+            <MyInput 
+
+                onChange={e => setSearchQuery(e.target.value)} 
+                value={searchQuery} placeholder="search"
+            />
 
             <MySelect 
 
@@ -62,7 +92,7 @@ function App() {
 
             {posts.length !== 0 
                 ? 
-                <PostList remove={removePost} posts={posts} title="JS posts"/>
+                <PostList remove={removePost} posts={sortedAndSearchedPosts} title="JS posts"/>
                 : 
                 <h1 style={{fontSize: '30px', textAlign: 'center'}}>
                     List of posts is empty
