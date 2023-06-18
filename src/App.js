@@ -27,8 +27,6 @@ function App() {
 
     const sortedPosts = useMemo(() => {
 
-        console.log("get sorted posts");
-
         if (selectedSort) {
 
             return [...posts].sort((a, b) => a[selectedSort].localeCompare(b[selectedSort]));
@@ -90,7 +88,7 @@ function App() {
                 ]}
             />
 
-            {posts.length !== 0 
+            {sortedAndSearchedPosts.length !== 0 
                 ? 
                 <PostList remove={removePost} posts={sortedAndSearchedPosts} title="JS posts"/>
                 : 
