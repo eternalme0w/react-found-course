@@ -4,6 +4,15 @@ import Post from "./Post";
 
 function PostList({posts, title, remove}) {
 
+    if (posts.length === 0) {
+
+        return (
+            <h1 style={{fontSize: '30px', textAlign: 'center'}}>
+                List of posts is empty
+            </h1>
+        )
+    }
+
     return (
 
         <div>

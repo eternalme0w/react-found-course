@@ -63,14 +63,11 @@ function App() {
 
             <PostFilter filter={filter} setFilter={(filter) => setFilter(filter)}/>
 
-            {sortedAndSearchedPosts.length !== 0 
-                ? 
-                <PostList remove={removePost} posts={sortedAndSearchedPosts} title="JS posts"/>
-                : 
-                <h1 style={{fontSize: '30px', textAlign: 'center'}}>
-                    List of posts is empty
-                </h1>
-            }
+
+            <PostList remove={removePost} posts={sortedAndSearchedPosts} title="JS posts"/>
+                
+                
+            
             
         </div>
     
