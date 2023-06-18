@@ -4,6 +4,7 @@ import PostList from "./components/PostList";
 import PostForm from "./components/PostForm";
 import MySelect from "./components/UI/select/MySelect";
 import MyInput from "./components/UI/input/MyInput";
+import PostFilter from "./components/PostFilter";
 
 
 
@@ -22,33 +23,25 @@ function App() {
 
     ])
 
-    const [selectedSort, setSelectedSort] = useState('');
-    const [searchQuery, setSearchQuery] = useState('');
+    const [filter, setFilter] = useState({sort: '', query: ''});
 
     const sortedPosts = useMemo(() => {
 
-        if (selectedSort) {
+        if (filter.sort) {
 
-            return [...posts].sort((a, b) => a[selectedSort].localeCompare(b[selectedSort]));
+            return [...posts].sort((a, b) => a[filter.sort].localeCompare(b[filter.sort]));
         }
 
         return posts;
 
-    }, [selectedSort, posts]);
+    }, [filter.sort, posts]);
 
     const sortedAndSearchedPosts = useMemo(() => {
 
-        return sortedPosts.filter(post => post.title.includes(searchQuery));
+        return sortedPosts.filter(post => post.title.includes(filter.query));
 
-    }, [searchQuery, sortedPosts]);
-
-    const sortPosts = sort => {
-
-        setSelectedSort(sort);
-    }
-
+    }, [filter.query, sortedPosts]);
     
-
     const createPost = newPost => {
 
         setPosts([...posts, newPost]);
@@ -68,25 +61,7 @@ function App() {
 
             <hr style={{margin: '15px 0'}}/>
 
-            
-
-            <MyInput 
-
-                onChange={e => setSearchQuery(e.target.value)} 
-                value={searchQuery} placeholder="search"
-            />
-
-            <MySelect 
-
-                value={selectedSort}
-                onChange={sortPosts}
-                defaultOption="Sort By"
-                options={[
-
-                    {name: 'By title', value: 'title'},
-                    {name: 'By description', value: 'body'},
-                ]}
-            />
+            <PostFilter filter={filter} setFilter={(filter) => setFilter(filter)}/>
 
             {sortedAndSearchedPosts.length !== 0 
                 ? 
